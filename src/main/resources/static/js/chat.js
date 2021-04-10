@@ -34,8 +34,8 @@ function disconnect() {
 
 function getMessageHistory() {
 	
-	uri = 'http://localhost:8080/chatmessages?fromUsername=' + fromWho +
-											'&toUsername=' + toWho;
+	uri = '/chatmessages?fromUsername=' + fromWho +
+						 '&toUsername=' + toWho;
 
 
 	$.ajax({
