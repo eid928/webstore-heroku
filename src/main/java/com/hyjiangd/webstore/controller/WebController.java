@@ -224,7 +224,10 @@ public class WebController {
 		String loginUsername = SecurityContextHolder.getContext().getAuthentication().getName();
 		model.addAttribute("loginUsername", loginUsername);
 		
+		path = System.getProperty("user.dir") + "\\dynamic\\images";
 		String newFileName = FileUtils.upload(file, path, file.getOriginalFilename());
+		System.out.println("Path: " + path);
+		
 		model.addAttribute("newFileName", newFileName);
 		
 		return "postgoods";
@@ -242,7 +245,7 @@ public class WebController {
 	@PostMapping("/fileUpdate")
 	public String updateImage(@RequestParam("fileName") MultipartFile file, HttpServletRequest request, RedirectAttributes redirectAttributes) {
 		
-		
+		path = System.getProperty("user.dir") + "\\dynamic\\images";
 		String newFileName = FileUtils.upload(file, path, file.getOriginalFilename());
 		
 		String id = request.getParameter("id");
